@@ -1,0 +1,85 @@
+yarn run v1.22.22
+$ yarn run clean && cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production --ignore-engines
+$ cd public/assets && find . \( -name "*.js" -o -name "*.map" \) -type f -delete
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+(node:8336) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Hash: 5cb1e6add1293e2b288e
+Version: webpack 4.43.0
+Time: 53895ms
+Built at: 14/10/2026 20.27.01
+                                    Asset      Size  Chunks                                Chunk Names
+                           10.6bd1701a.js  2.97 KiB      10  [emitted] [immutable]         
+                           11.b2eda9f6.js  3.96 KiB      11  [emitted] [immutable]         
+                           12.a64bff09.js  5.49 KiB      12  [emitted] [immutable]         
+                           13.ff0d5924.js  4.29 KiB      13  [emitted] [immutable]         
+                           14.9fe6a217.js  23.6 KiB      14  [emitted] [immutable]         
+                            7.6fe7405c.js   534 KiB       7  [emitted] [immutable]  [big]  
+                            8.64a7dc4e.js  3.21 KiB       8  [emitted] [immutable]         
+                            9.b6f811a8.js  11.7 KiB       9  [emitted] [immutable]         
+                         auth.575db982.js  27.2 KiB       3  [emitted] [immutable]         auth
+                       bundle.2837f4f6.js   558 KiB       5  [emitted] [immutable]  [big]  main
+                    dashboard.f4883682.js  15.7 KiB       4  [emitted] [immutable]         dashboard
+             dashboard~server.f28817a1.js   263 KiB       1  [emitted] [immutable]  [big]  dashboard~server
+                            manifest.json  1.15 KiB          [emitted]                     
+                       server.6b268536.js    51 KiB       6  [emitted] [immutable]         server
+vendors~auth~dashboard~server.122b2b76.js    90 KiB       0  [emitted] [immutable]         vendors~auth~dashboard~server
+     vendors~dashboard~server.5e5697e4.js  1.09 MiB       2  [emitted] [immutable]  [big]  vendors~dashboard~server
+Entrypoint main [big] = bundle.2837f4f6.js
+ [11] ./node_modules/history/esm/history.js + 2 modules 30.6 KiB {5} [built]
+      |    3 modules
+ [15] ./node_modules/react-router/esm/react-router.js + 1 modules 29.2 KiB {5} [built]
+      |    2 modules
+ [17] ./resources/scripts/api/http.ts 4.08 KiB {5} [built]
+ [18] ./resources/scripts/state/index.ts + 7 modules 5.07 KiB {5} [built]
+      | ./resources/scripts/state/index.ts 359 bytes [built]
+      | ./resources/scripts/state/flashes.ts 1.7 KiB [built]
+      | ./resources/scripts/state/user.ts 1.54 KiB [built]
+      | ./resources/scripts/state/permissions.ts 393 bytes [built]
+      | ./resources/scripts/state/settings.ts 177 bytes [built]
+      | ./resources/scripts/state/progress.ts 408 bytes [built]
+      | ./resources/scripts/api/account/updateAccountEmail.ts 239 bytes [built]
+      | ./resources/scripts/api/getSystemPermissions.ts 277 bytes [built]
+ [29] ./resources/scripts/helpers.ts 1.09 KiB {5} [built]
+ [38] ./node_modules/react-transition-group/esm/index.js + 4 modules 22.6 KiB {5} [built]
+      |    5 modules
+ [51] ./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/postcss-loader/dist/cjs.js??ref--6-2!./resources/scripts/assets/tailwind.css 49.5 KiB {5} [built]
+ [52] ./node_modules/css-loader/dist/cjs.js??ref--6-1!./node_modules/postcss-loader/dist/cjs.js??ref--6-2!./resources/scripts/assets/css/xrou-theme.css 16.1 KiB {5} [built]
+ [53] ./resources/scripts/state/server/index.ts + 5 modules 5.83 KiB {5} [built]
+      | ./resources/scripts/state/server/index.ts 2.38 KiB [built]
+      | ./resources/scripts/state/server/socket.ts 284 bytes [built]
+      | ./resources/scripts/state/server/files.ts 1.45 KiB [built]
+      | ./resources/scripts/state/server/subusers.ts 575 bytes [built]
+      | ./resources/scripts/state/server/schedules.ts 584 bytes [built]
+      | ./resources/scripts/state/server/databases.ts 584 bytes [built]
+ [82] ./node_modules/react-i18next/dist/es/index.js + 9 modules 30.2 KiB {5} [built]
+      |    10 modules
+ [97] multi react-hot-loader/patch ./resources/scripts/index.tsx 40 bytes {5} [built]
+[151] ./resources/scripts/index.tsx + 23 modules 121 KiB {5} [built]
+      | ./resources/scripts/index.tsx 543 bytes [built]
+      | ./resources/scripts/i18n.ts 1.08 KiB [built]
+      | ./resources/scripts/assets/css/GlobalStylesheet.ts 1.08 KiB [built]
+      | ./resources/scripts/api/interceptors.ts 772 bytes [built]
+      | ./resources/scripts/assets/tailwind.css 410 bytes [built]
+      | ./resources/scripts/assets/css/xrou-theme.css 421 bytes [built]
+      |     + 18 hidden modules
+[407] ./resources/scripts/routers/AuthenticationRouter.tsx + 10 modules 29.1 KiB {3} [built]
+      | ./resources/scripts/routers/AuthenticationRouter.tsx 1.57 KiB [built]
+      | ./resources/scripts/api/auth/login.ts 748 bytes [built]
+      | ./resources/scripts/api/auth/requestPasswordResetEmail.ts 295 bytes [built]
+      | ./resources/scripts/api/auth/performPasswordReset.ts 432 bytes [built]
+      | ./resources/scripts/api/auth/loginCheckpoint.ts 493 bytes [built]
+      |     + 6 hidden modules
+[409] ./resources/scripts/routers/ServerRouter.tsx + 9 modules 21.8 KiB {6} [built]
+      | ./resources/scripts/routers/ServerRouter.tsx 4.69 KiB [built]
+      | ./resources/scripts/plugins/Websocket.ts 2.46 KiB [built]
+      | ./resources/scripts/api/server/getWebsocketToken.ts 354 bytes [built]
+      |     + 7 hidden modules
+[410] ./resources/scripts/routers/DashboardRouter.tsx + 7 modules 28.6 KiB {4} [built]
+      | ./resources/scripts/routers/DashboardRouter.tsx 1.37 KiB [built]
+      | ./resources/scripts/api/server/getServerResourceUsage.ts 767 bytes [built]
+      |     + 6 hidden modules
+    + 397 hidden modules
+Done in 57.61s.
