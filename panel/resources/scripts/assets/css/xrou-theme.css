@@ -1,0 +1,519 @@
+/*
+ | XROUMINARE — design tokens & base components (Saweria-inspired)
+ | ---------------------------------------------------------------
+ | Dark mode is the default (:root), Light mode is enabled by adding
+ | the `xrou-light` class to <html>. The theme store in
+ | resources/scripts/plugins/xrouTheme.ts manages that class.
+ |
+ | This file is imported AFTER tailwind's utilities (see index.tsx import
+ | order) so the role overrides below win the cascade against generated
+ | utility classes.
+ */
+
+:root {
+    /* -- semantic surfaces (dark mode) ---------------------------------- */
+    --xrou-bg: #111318;
+    --xrou-surface: #1b1f27;
+    --xrou-elevated: #242a34;
+    --xrou-input: #1f242e;
+    --xrou-chip: #2c333d;
+    --xrou-chip-soft: #222831;
+
+    /* -- text ------------------------------------------------------------ */
+    --xrou-text: #f5f7fa;
+    --xrou-text-2: #a8b0be;
+    --xrou-text-3: #7a8494;
+
+    /* -- lines & shadows -------------------------------------------------- */
+    --xrou-border: #313947;
+    --xrou-border-strong: #050608;
+    --xrou-shadow: #000000;
+    --xrou-shadow-offset: 5px;
+    --xrou-focus: #ffb629;
+
+    /* -- accent buttons (kept identical across modes) --------------------- */
+    --xrou-cyan: #8dd8e2;
+    --xrou-cyan-text: #0e2b31;
+    --xrou-cyan-hover: #9de0e9;
+    --xrou-yellow: #ffb629;
+    --xrou-yellow-text: #3c2a00;
+    --xrou-yellow-hover: #ffc14d;
+    --xrou-pink: #ff8999;
+    --xrou-pink-text: #431019;
+    --xrou-pink-hover: #ff9dab;
+    --xrou-green: #8dd8a8;
+    --xrou-green-text: #0d2e1c;
+    --xrou-green-hover: #9fe0b7;
+    --xrou-purple: #8175f5;
+    --xrou-purple-text: #ffffff;
+    --xrou-purple-hover: #9086f7;
+
+    /* -- base gray ramp consumed by tailwind (dark values) ---------------- */
+    --xrou-n50: #f5f7fa;
+    --xrou-n100: #f5f7fa;
+    --xrou-n200: #e9edf2;
+    --xrou-n300: #a8b0be;
+    --xrou-n400: #4c5664;
+    --xrou-n500: #3a4350;
+    --xrou-n600: #2c333d;
+    --xrou-n700: #242a34;
+    --xrou-n800: #1b1f27;
+    --xrou-n900: #111318;
+    --xrou-black: #050608;
+}
+
+html.xrou-light {
+    --xrou-bg: #ffffff;
+    --xrou-surface: #f1f7f4;
+    --xrou-elevated: #ffffff;
+    --xrou-input: #ffffff;
+    --xrou-chip: #e8f1ed;
+    --xrou-chip-soft: #eff5f2;
+
+    --xrou-text: #172033;
+    --xrou-text-2: #536174;
+    --xrou-text-3: #7c8795;
+
+    --xrou-border: #e0e8e4;
+    --xrou-border-strong: #282828;
+    --xrou-shadow: #252525;
+
+    --xrou-n50: #f8fbfa;
+    --xrou-n100: #eaf2ee;
+    --xrou-n200: #172033;
+    --xrou-n300: #536174;
+    --xrou-n400: #c9d5cf;
+    --xrou-n500: #e8f1ed;
+    --xrou-n600: #ffffff;
+    --xrou-n700: #ffffff;
+    --xrou-n800: #f1f7f4;
+    --xrou-n900: #ffffff;
+    --xrou-black: #172033;
+}
+
+/* -----------------------------------------------------------------------
+ | Role overrides for tailwind utility classes (gray ramp is role-aware).
+ | These only apply to utility classes used directly in JSX; components
+ | written with styled-components inline the ramp vars themselves.
+ | ----------------------------------------------------------------------- */
+.text-neutral-100,
+.text-gray-100,
+.text-neutral-200,
+.text-gray-200 {
+    color: var(--xrou-text);
+}
+
+.text-neutral-300,
+.text-gray-300,
+.text-neutral-400,
+.text-gray-400 {
+    color: var(--xrou-text-2);
+}
+
+.text-neutral-500,
+.text-gray-500,
+.text-neutral-600,
+.text-gray-600,
+.text-neutral-700,
+.text-gray-700 {
+    color: var(--xrou-text-3);
+}
+
+.text-gray-50 {
+    color: var(--xrou-text);
+}
+
+.bg-neutral-100,
+.bg-gray-100 {
+    background-color: var(--xrou-chip-soft);
+}
+
+.bg-neutral-500,
+.bg-gray-500,
+.bg-neutral-400 {
+    background-color: var(--xrou-chip);
+}
+
+.bg-neutral-600,
+.bg-gray-600 {
+    background-color: var(--xrou-input);
+}
+
+.bg-neutral-700,
+.bg-gray-700 {
+    background-color: var(--xrou-elevated);
+}
+
+.bg-neutral-800,
+.bg-gray-800 {
+    background-color: var(--xrou-surface);
+}
+
+.bg-neutral-900,
+.bg-gray-900 {
+    background-color: var(--xrou-bg);
+}
+
+.border-neutral-200,
+.border-neutral-300,
+.border-neutral-400,
+.border-neutral-500,
+.border-neutral-600,
+.border-neutral-700,
+.border-neutral-800,
+.border-gray-200,
+.border-gray-300,
+.border-gray-400,
+.border-gray-500,
+.border-gray-600,
+.border-gray-700,
+.border-gray-800 {
+    border-color: var(--xrou-border);
+}
+
+/* -----------------------------------------------------------------------
+ | Global polish
+ | ----------------------------------------------------------------------- */
+html,
+body {
+    background-color: var(--xrou-bg);
+    color: var(--xrou-text);
+}
+
+::selection {
+    background: var(--xrou-cyan);
+    color: #0e2b31;
+}
+
+:focus-visible {
+    outline: 3px solid var(--xrou-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: solid 0 transparent;
+    border-right-width: 4px;
+    border-left-width: 4px;
+    border-radius: 9px 4px;
+    background-clip: padding-box;
+    -webkit-box-shadow:
+        inset 0 0 0 1px var(--xrou-text-3),
+        inset 0 0 0 4px var(--xrou-chip);
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    border-right-width: 0;
+    border-left-width: 0;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-radius: 4px 9px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* -----------------------------------------------------------------------
+ | XROUMINARE components (Saweria look: solid colors, thin black border,
+ | hard offset shadow, playful press interaction)
+ | ----------------------------------------------------------------------- */
+.xrou-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.15rem;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.25rem;
+    text-decoration: none;
+    border: 2px solid var(--xrou-border-strong);
+    border-radius: 6px;
+    box-shadow: var(--xrou-shadow-offset) var(--xrou-shadow-offset) 0 var(--xrou-shadow);
+    cursor: pointer;
+    user-select: none;
+    transition:
+        transform 140ms ease,
+        box-shadow 140ms ease,
+        background-color 140ms ease,
+        opacity 140ms ease;
+}
+
+.xrou-btn:hover:not(:disabled) {
+    transform: translate(-1px, -1px);
+    box-shadow: calc(var(--xrou-shadow-offset) + 1px) calc(var(--xrou-shadow-offset) + 1px) 0 var(--xrou-shadow);
+}
+
+.xrou-btn:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--xrou-shadow);
+}
+
+.xrou-btn:focus-visible {
+    outline: 3px solid var(--xrou-focus);
+    outline-offset: 3px;
+}
+
+.xrou-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 3px 3px 0 var(--xrou-shadow);
+}
+
+.xrou-btn-primary {
+    background-color: var(--xrou-cyan);
+    color: var(--xrou-cyan-text);
+}
+
+.xrou-btn-primary:hover:not(:disabled) {
+    background-color: var(--xrou-cyan-hover);
+}
+
+.xrou-btn-secondary {
+    background-color: var(--xrou-yellow);
+    color: var(--xrou-yellow-text);
+}
+
+.xrou-btn-secondary:hover:not(:disabled) {
+    background-color: var(--xrou-yellow-hover);
+}
+
+.xrou-btn-success {
+    background-color: var(--xrou-green);
+    color: var(--xrou-green-text);
+}
+
+.xrou-btn-success:hover:not(:disabled) {
+    background-color: var(--xrou-green-hover);
+}
+
+.xrou-btn-danger {
+    background-color: var(--xrou-pink);
+    color: var(--xrou-pink-text);
+}
+
+.xrou-btn-danger:hover:not(:disabled) {
+    background-color: var(--xrou-pink-hover);
+}
+
+.xrou-btn-accent {
+    background-color: var(--xrou-purple);
+    color: var(--xrou-purple-text);
+}
+
+.xrou-btn-accent:hover:not(:disabled) {
+    background-color: var(--xrou-purple-hover);
+}
+
+.xrou-btn-neutral {
+    background-color: var(--xrou-chip);
+    color: var(--xrou-text);
+}
+
+.xrou-btn-neutral:hover:not(:disabled) {
+    background-color: var(--xrou-chip-soft);
+    filter: brightness(1.08);
+}
+
+html.xrou-light .xrou-btn-neutral:hover:not(:disabled) {
+    filter: brightness(0.96);
+}
+
+.xrou-btn-sm {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 5px;
+}
+
+.xrou-btn-lg {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+}
+
+.xrou-btn-block {
+    width: 100%;
+}
+
+/* Card ------------------------------------------------------------------ */
+.xrou-card {
+    background-color: var(--xrou-elevated);
+    border: 2px solid var(--xrou-border-strong);
+    border-radius: 8px;
+    box-shadow: var(--xrou-shadow-offset) var(--xrou-shadow-offset) 0 var(--xrou-shadow);
+}
+
+.xrou-card-flat {
+    background-color: var(--xrou-elevated);
+    border: 2px solid var(--xrou-border-strong);
+    border-radius: 8px;
+}
+
+/* Input ------------------------------------------------------------------ */
+.xrou-input {
+    width: 100%;
+    min-width: 0;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.875rem;
+    color: var(--xrou-text);
+    background-color: var(--xrou-input);
+    border: 2px solid var(--xrou-border-strong);
+    border-radius: 6px;
+    transition:
+        box-shadow 140ms ease,
+        border-color 140ms ease;
+}
+
+.xrou-input::placeholder {
+    color: var(--xrou-text-3);
+    opacity: 1;
+}
+
+.xrou-input:focus {
+    outline: none;
+    border-color: var(--xrou-border-strong);
+    box-shadow: 3px 3px 0 var(--xrou-focus);
+}
+
+.xrou-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Badge ------------------------------------------------------------------ */
+.xrou-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    border: 1.5px solid var(--xrou-border-strong);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.xrou-badge-success {
+    background-color: #d9f2e2;
+    color: #14532d;
+}
+
+.xrou-badge-danger {
+    background-color: #ffdde2;
+    color: #8f1d2f;
+}
+
+.xrou-badge-warning {
+    background-color: #ffe9c2;
+    color: #7a4b05;
+}
+
+.xrou-badge-info {
+    background-color: #dcf2f6;
+    color: #155e6b;
+}
+
+.xrou-badge-accent {
+    background-color: #e6e2fd;
+    color: #4331b8;
+}
+
+.xrou-badge-neutral {
+    background-color: var(--xrou-chip);
+    color: var(--xrou-text-2);
+}
+
+/* Skeleton --------------------------------------------------------------- */
+.xrou-skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--xrou-chip);
+    border-radius: 6px;
+}
+
+.xrou-skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: xrou-shimmer 1.4s infinite;
+}
+
+html.xrou-light .xrou-skeleton::after {
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+}
+
+@keyframes xrou-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Toast / flash message --------------------------------------------------- */
+.xrou-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.8rem 1rem;
+    background-color: var(--xrou-elevated);
+    color: var(--xrou-text);
+    border: 2px solid var(--xrou-border-strong);
+    border-radius: 8px;
+    box-shadow: var(--xrou-shadow-offset) var(--xrou-shadow-offset) 0 var(--xrou-shadow);
+}
+
+/* Nav item (sidebar) ------------------------------------------------------ */
+.xrou-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--xrou-text-2);
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition:
+        background-color 140ms ease,
+        color 140ms ease,
+        border-color 140ms ease,
+        box-shadow 140ms ease,
+        transform 140ms ease;
+}
+
+.xrou-nav-item:hover {
+    color: var(--xrou-text);
+    background-color: var(--xrou-chip-soft);
+}
+
+.xrou-nav-item.active {
+    color: var(--xrou-text);
+    background-color: var(--xrou-cyan);
+    border-color: var(--xrou-border-strong);
+    box-shadow: 3px 3px 0 var(--xrou-shadow);
+    transform: translate(-1px, -1px);
+}
+
+html.xrou-light .xrou-nav-item.active {
+    color: var(--xrou-cyan-text);
+}
+
+/* Misc -------------------------------------------------------------------- */
+.xrou-divider {
+    height: 2px;
+    background-color: var(--xrou-border);
+    border-radius: 999px;
+    opacity: 0.6;
+}
